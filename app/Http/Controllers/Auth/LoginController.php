@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'username';
+        return 'email';
     }
 
     protected function isLoginTrue(Request $request)
@@ -57,7 +57,7 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $rules = [
-            $this->username() => 'required|string',
+            $this->username() => 'required|email',
             'password' => 'required|string',
         ];
 
