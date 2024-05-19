@@ -8,13 +8,13 @@
                 <div class="panel-heading">Set up Google Authenticator</div>
 
                 <div class="panel-body" style="text-align: center;">
-                    <p>Set up your two factor authentication by scanning the barcode below. Alternatively, you can use the code {{ $secret }}</p>
+                    <p>Silahkan Scan Barcode dibawah ini aplikasi Google Authenticator atau dapat menginput kode ini.  Jika tidak, Anda tidak akan bisa masuk {{ $secret }}</p>
                     <div>
                         {!! $QR_Image !!}
                     </div>
-                    <p>You must set up your Google Authenticator app before continuing. You will be unable to login otherwise</p>
+                    <!-- <p>Anda harus menyiapkan aplikasi Google Authenticator sebelum melanjutkan. Jika tidak, Anda tidak akan bisa masuk</p> -->
                     <div>
-                        <a href="/complete-login"><button class="btn btn-primary">Complete Login</button></a>
+                        <a href="/complete-login"><button class="btn btn-primary">Next</button></a>
                     </div>
                 </div>
             </div>

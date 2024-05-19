@@ -94,10 +94,10 @@
                             <div class="form-group row">
                                 <div class="offset-md-4 col-md-6">
                                     <div class="captcha">
-                                    <div style="width: 140px; height: 52px;">{!! captcha_img() !!}</div>
-                                        <button type="button" class="btn btn-danger reload" id="reload">
+                                    <div>{!! captcha_img() !!}</div>
+                                        <!-- <button type="button" class="btn btn-danger reload" id="reload">
                                             &#x21bb;
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
                             </div>
@@ -127,8 +127,8 @@
                         </div>  --}}
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-8 offset-md-4 pl-6">
+                                <button type="submit" class="btn btn-primary  ">
                                     {{ __('Login') }}
                                 </button>
 
@@ -151,7 +151,18 @@
     </div>
   </div>
 </div>
-
+<script type="text/javascript">
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+                $("#captcha").val('');
+              }
+        });
+    });
+  </script>
 <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>

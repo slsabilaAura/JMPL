@@ -17,7 +17,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <p>Please enter the  <strong>OTP</strong> generated on your Authenticator App. <br> Ensure you submit the current one because it refreshes every 30 seconds.</p>
+                            <p>Silahkan masukkan <strong>OTP</strong> yang telah di kirim di Authenticate App Anda </p>
                             <label for="one_time_password" class="col-md-4 control-label">One Time Password</label>
 
 

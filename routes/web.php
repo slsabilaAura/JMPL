@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CaptchaServiceController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FileUploadController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +27,21 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['2fa'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // Route::get('/upload', [HomeController::class, 'showUploadForm'])->name('upload.form');
+    Route::post('/upload', [HomeController::class, 'uploadFile'])->name('upload.file');
     Route::post('/2fa', function () {
         return redirect(route('home'));
     })->name('2fa');
 });
+
+
+
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/upload', [FileUploadController::class, 'showUploadForm'])->name('upload.form');
+//     Route::post('/upload', [FileUploadController::class, 'uploadFile'])->name('upload.file');
+// });
+
 
 Route::get('/contact-form', [CaptchaServiceController::class, 'index']);
 Route::post('/captcha-validation', [CaptchaServiceController::class, 'captchaFormValidate']);
